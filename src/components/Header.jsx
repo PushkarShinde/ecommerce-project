@@ -1,11 +1,11 @@
 import { Link } from 'react-router';
 import './header.css';
 
-export function Header(){
+function Header(){
   return (
     <>
       <div className="header">
-        <div classNameName="left-section">
+        <div className="left-section">
           <Link to="/" className="header-link">
             <img className="logo"
               src="images/logo-white.png" />
@@ -38,3 +38,5 @@ export function Header(){
     </>
   );
 }
+
+export default Header;
