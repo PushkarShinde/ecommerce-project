@@ -1,7 +1,7 @@
 import axios from 'axios';
 import './HomePage.css';
 import Header from '../components/Header';
-import { products } from '../../data/products.js';
+import { useEffect, useState } from 'react';
 
 function HomePage() {
   /*//OLD WAY
@@ -13,10 +13,15 @@ function HomePage() {
         });
     })
   */
-  axios.get('http://localhost:3000/api/products')
-    .then((response)=>{
-      console.log(response.data);
-    });
+
+  const [products, setProducts]=useState([]);
+
+  useEffect(()=>{
+    axios.get('http://localhost:3000/api/products')
+      .then((response)=>{
+        setProducts(response.data);
+      });
+  }, []);
 
   return (//A component can only return one element, so we must wrap all the html in one element <>...</>
     <>
